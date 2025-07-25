@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+
 const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
@@ -11,4 +13,6 @@ const nextConfig = {
   },
 }
 
-export default nextConfig
+initOpenNextCloudflareForDev();
+
+export default nextConfig;
