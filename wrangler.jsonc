@@ -3,5 +3,5 @@
   "compatibility_flags": [ "nodejs_compat" ],
   "assets": {
     "directory": "./public"
-  }
+  },"name": "sygro"
 }
