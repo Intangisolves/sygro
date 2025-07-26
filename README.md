@@ -57,7 +57,7 @@ This command will create an optimized build of your application in the `.next` d
 
 ### Hosting on Cloudflare Pages/Workers
 
-This project uses `@opennextjs/cloudflare` for deployment to Cloudflare Pages/Workers. The `package.json` includes scripts for deployment.
+This project uses `@opennextjs/cloudflare` for deployment to Cloudflare Workers. The `package.json` includes scripts for deployment.
 
 1.  **Authentication (if not already logged in):**
 
@@ -69,19 +69,24 @@ This project uses `@opennextjs/cloudflare` for deployment to Cloudflare Pages/Wo
 
 2.  **Deploy to Cloudflare:**
 
-    To deploy your application to Cloudflare Pages/Workers, use the `deploy` script:
+    To deploy your application to Cloudflare Workers, use the `deploy` script:
 
     ```bash
     pnpm run deploy
     ```
 
-    This command will build your project and deploy it to Cloudflare. The URL for your deployed application will be provided in the terminal output.
+    This command first builds your Next.js project using `opennextjs-cloudflare build` and then deploys it to Cloudflare Workers using `opennextjs-cloudflare deploy`. The URL for your deployed application will be provided in the terminal output.
 
     Alternatively, you can use `upload` if you only want to upload the built assets without a full deployment:
 
     ```bash
     pnpm run upload
     ```
+
+**Important Configuration Notes:**
+
+*   The `wrangler.jsonc` file is configured to use `nodejs_compat_v2` for Node.js compatibility and points the worker entry to `.open-next/worker.js` and assets to `.open-next/assets`.
+*   The `wrangler.toml` file does **not** contain any redirect rules, as `opennextjs-cloudflare` handles routing internally.
 
 ### Troubleshooting 404 Errors on Cloudflare Pages
 
