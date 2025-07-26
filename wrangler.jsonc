@@ -1,7 +1,10 @@
 {
-  "compatibility_date": "2024-01-01",
+  "main": ".open-next/worker.js",
+  "name": "sygro",
+  "compatibility_date": "2024-07-22",
   "compatibility_flags": [ "nodejs_compat" ],
   "assets": {
-    "directory": "./public"
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
   }
 }
